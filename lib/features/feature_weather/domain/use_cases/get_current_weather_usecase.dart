@@ -1,16 +1,16 @@
-import 'package:weather/core/resources/data_state.dart';
-import 'package:weather/core/use_case/use_case.dart';
-import 'package:weather/features/feature_weather/domain/entities/current_city_entity.dart';
+import 'package:weather/core/usecase/use_case.dart';
 import 'package:weather/features/feature_weather/domain/repository/weather_repository.dart';
 
-class GetCurrentWeatherUsecase
-    implements UseCase<DataState<CurrentCityEntity>, String> {
-  final WeatherRepository weatherRepository;
+import '../../../../core/resources/data_state.dart';
+import '../entities/current_city_entity.dart';
 
-  GetCurrentWeatherUsecase(this.weatherRepository);
+class GetCurrentWeatherUseCase
+    extends UseCase<DataState<CurrentCityEntity>, String> {
+  final WeatherRepository weatherRepository;
+  GetCurrentWeatherUseCase(this.weatherRepository);
 
   @override
-  Future<DataState<CurrentCityEntity>> call(cityName) {
-    return weatherRepository.fetchCurrentCityWeather(cityName);
+  Future<DataState<CurrentCityEntity>> call(String param) {
+    return weatherRepository.fetchCurrentWeatherData(param);
   }
 }

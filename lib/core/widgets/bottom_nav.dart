@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+
 class BottomNav extends StatelessWidget {
-  PageController controller;
-  BottomNav({Key? key, required this.controller}) : super(key: key);
+  PageController Controller;
+  BottomNav({Key? key, required this.Controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     var primaryColor = Theme.of(context).primaryColor;
     TextTheme textTheme = Theme.of(context).textTheme;
 
@@ -19,20 +21,14 @@ class BottomNav extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-                onPressed: () {
-                  controller.animateToPage(0,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut);
+                onPressed: (){
+                  Controller.animateToPage(0, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
                 },
                 icon: const Icon(Icons.home)),
             const SizedBox(),
-            IconButton(
-                onPressed: () {
-                  controller.animateToPage(1,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut);
-                },
-                icon: const Icon(Icons.bookmark)),
+            IconButton(onPressed: (){
+              Controller.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+            }, icon: const Icon(Icons.bookmark)),
           ],
         ),
       ),

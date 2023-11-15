@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:weather/features/feature_weather/presentation/bloc/home_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/core/widgets/main_wrapper.dart';
-import 'package:weather/features/feature_weather/presentation/bloc/home/home_bloc.dart';
-import 'package:weather/locator.dart';
 
-void main(List<String> args) async {
+import 'core/widgets/main_wrapper.dart';
+import 'locator.dart';
+
+void main() async {
+  ///  init locator
   await setup();
-  runApp(MultiBlocProvider(
-    providers: [
+
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MultiBlocProvider(providers: [
       BlocProvider(create: (_) => locator<HomeBloc>()),
-    ],
-    child: MaterialApp(
-      home: MainWrapper(),
-    ),
+    ], child: MainWrapper()),
   ));
 }

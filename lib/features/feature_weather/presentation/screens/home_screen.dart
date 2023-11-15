@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:weather/core/widgets/app_background.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:weather/core/params/forecast_params.dart';
-import 'package:weather/core/widgets/app_background.dart';
-import 'package:weather/core/widgets/dot_loading_widget.dart';
-import 'package:weather/features/feature_weather/data/models/forecast_days_model.dart';
-import 'package:weather/features/feature_weather/domain/entities/current_city_entity.dart';
-import 'package:weather/features/feature_weather/domain/entities/forecast_days_entity.dart';
-import 'package:weather/features/feature_weather/presentation/bloc/home/current_weather_status.dart';
-import 'package:weather/features/feature_weather/presentation/bloc/home/fw_status.dart';
-import 'package:weather/features/feature_weather/presentation/bloc/home/home_bloc.dart';
-import 'package:weather/features/feature_weather/presentation/widgets/day_weather_view.dart';
+
+import '../../../../core/params/ForecastParams.dart';
+import '../../../../core/widgets/dot_loading_widget.dart';
+import '../../data/models/ForcastDaysModel.dart';
+import '../../domain/entities/current_city_entity.dart';
+import '../../domain/entities/forecase_days_entity.dart';
+import '../bloc/cw_status.dart';
+import '../bloc/fw_status.dart';
+import '../bloc/home_bloc.dart';
+import '../widgets/day_weather_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 0,
+                                  height: 4,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
