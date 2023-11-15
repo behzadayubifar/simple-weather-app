@@ -8,7 +8,7 @@ void main(List<String> args) async {
   await setup();
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider<HomeBloc>(create: (_) => locator()),
+      BlocProvider(create: (_) => locator<HomeBloc>()),
     ],
     child: MaterialApp(
       home: MainWrapper(),

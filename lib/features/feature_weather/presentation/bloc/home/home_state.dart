@@ -1,20 +1,21 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
-  final CurrentWeatherStatus currentWeatherStatus;
-  const HomeState({required this.currentWeatherStatus});
+  final CwStatus cwStatus;
+  final FwStatus fwStatus;
 
+  const HomeState({required this.cwStatus, required this.fwStatus});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [cwStatus];
 
   @override
   bool get stringify => true;
 
-  HomeState copyWith({
-    CurrentWeatherStatus? newCurrentWeatherStatus,
-  }) {
+  HomeState copyWith(
+      {CwStatus? newCurrentWeatherStatus, FwStatus? newFwStatus}) {
     return HomeState(
-      currentWeatherStatus: newCurrentWeatherStatus ?? currentWeatherStatus,
+      cwStatus: newCurrentWeatherStatus ?? cwStatus,
+      fwStatus: newFwStatus ?? fwStatus,
     );
   }
 }

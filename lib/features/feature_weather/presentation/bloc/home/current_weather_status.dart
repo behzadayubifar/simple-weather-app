@@ -2,16 +2,16 @@ import 'package:flutter/foundation.dart' show immutable;
 import 'package:weather/features/feature_weather/domain/entities/current_city_entity.dart';
 
 @immutable
-abstract class CurrentWeatherStatus {}
+abstract class CwStatus {}
 
-class CurrentWeatherLoading extends CurrentWeatherStatus {}
+class CwLoading extends CwStatus {}
 
-class CurrentWeatherLoaded extends CurrentWeatherStatus {
-  CurrentWeatherLoaded(this.currentCityEntity);
+class CwCompleted extends CwStatus {
+  CwCompleted(this.currentCityEntity);
   final CurrentCityEntity currentCityEntity;
 }
 
-class CurrrentWeatherError extends CurrentWeatherStatus {
-  CurrrentWeatherError(this.message);
+class CwError extends CwStatus {
+  CwError(this.message);
   final String message;
 }
